@@ -9,7 +9,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
-public class MainActivity extends AppCompatActivity {
+public class    MainActivity extends AppCompatActivity {
     public static final String EXTRA_MESSAGE = "com.example.storygenerator.MESSAGE";
     EditText name;
     EditText gender;
@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
     EditText dislike_three;
     Button clear_btn;
     Button submit_btn;
-    
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,38 +66,47 @@ public class MainActivity extends AppCompatActivity {
        // });
     }
 
-
     public void theSubmit(View view) {
         char result = name.getText().charAt(0);
         Character c1 = new Character(result);
-        if (c1.equals('A') || c1.equals('B') || c1.equals('C') || c1.equals('D') || c1.equals('E') || c1.equals('F') || c1.equals('G') || c1.equals('H')) {
+
+        if (c1.toString().matches("[A-Ha-h]")) {
             System.out.println("First Test");
-            MainActivity mainclass = new MainActivity();
-            mainclass.firstStory();
-        } else if (c1.equals('I') || c1.equals('J') || c1.equals('K') || c1.equals('L') || c1.equals('M') || c1.equals('N') || c1.equals('O') || c1.equals('P')) {
+            firstStory(view);
+        } else if (c1.toString().matches("[I-Pi-p]")) {
             System.out.println("Second Test");
-            MainActivity mainclass = new MainActivity();
-            mainclass.secondStory();
-        } else if (c1.equals('Q') || c1.equals('R') || c1.equals('S') || c1.equals('T') || c1.equals('U') || c1.equals('V') || c1.equals('W') || c1.equals('X') || c1.equals('Y') || c1.equals('Z')) {
+            secondStory(view);
+        } else if (c1.toString().matches("[Q-Zq-z]")) {
             System.out.println("Third Test");
-            MainActivity mainclass = new MainActivity();
-            mainclass.thirdStory();
+            thirdStory(view);
         } else {
-            MainActivity mainclass = new MainActivity();
-            mainclass.error();
+            error();
         }
     }
 
-    public void firstStory() {
 
+    public void firstStory(View view) {
+        Intent intent = new Intent(this, FirstStory.class);
+        EditText editText = (EditText) name;
+        String message = editText.getText().toString();
+        intent.putExtra(EXTRA_MESSAGE, message+"First Story");
+        startActivity(intent);
     }
 
-    public void secondStory() {
-
+    public void secondStory(View view) {
+        Intent intent = new Intent(this, SecondStory.class);
+        EditText editText = (EditText) name;
+        String message = editText.getText().toString();
+        intent.putExtra(EXTRA_MESSAGE, message+"Second Story");
+        startActivity(intent);
     }
 
-    public void thirdStory() {
-
+    public void thirdStory(View view) {
+        Intent intent = new Intent(this, ThirdStory.class);
+        EditText editText = (EditText) name;
+        String message = editText.getText().toString();
+        intent.putExtra(EXTRA_MESSAGE, message+"Thrid Story");
+        startActivity(intent);
     }
 
     public void error() {
