@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">Story Generator</string>
+    <string name="user_name">Your Name</string>
+    <string name="gender">Gender</string>
+    <string name="fav_color">Favorite Color</string>
+    <string name="fav_location">Favorite Location</string>
+    <string name="fav_number">Favorite Number</string>
+    <string name="likes_text">Likes (enter three)</string>
+    <string name="first_like">First like</string>
+    <string name="sec_like">Second like</string>
+    <string name="third_like">Third like</string>
+    <string name="dislike_text">Dislikes (enter three)</string>
+    <string name="first_dislike">First dislike</string>
+    <string name="sec_dislike">Second dislike</string>
+    <string name="third_dislike">Third dislike</string>
+    <string name="submit">Submit</string>
+    <string name="clear">Clear</string>
+</resources>
