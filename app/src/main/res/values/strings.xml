@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Story Generator</string>
     <string name="user_name">Your Name</string>
-    <string name="gender">Gender</string>
+    <string name="gender">Gender (Input "M" or "F")</string>
     <string name="fav_color">Favorite Color</string>
     <string name="fav_location">Favorite Location</string>
     <string name="fav_number">Favorite Number</string>
