@@ -3,13 +3,14 @@
     package="com.example.storygenerator">
 
     <application
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/story"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@mipmap/story_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.StoryGenerator">
         <activity android:name=".FirstStory"
             android:parentActivityName=".MainActivity">
+
             <!-- The meta-data tag is required if you support API level 15 and lower -->
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"

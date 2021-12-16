@@ -16,6 +16,11 @@ public class ThirdStory extends AppCompatActivity {
         Intent intent = getIntent();
         String message = intent.getStringExtra(MainActivity.EXTRA_MESSAGE);
 
+        //Sets Color of Backgournd
+
+        getWindow().getDecorView().setBackgroundColor(getResources().getColor(R.color.True_Velvet));
+
+
         // Capture the layout's TextView and set the string as its text
         TextView textView = findViewById(R.id.textView);
         textView.setText(message);

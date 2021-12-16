@@ -3,13 +3,14 @@ package com.example.storygenerator;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
-public class    MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity {
     public static final String EXTRA_MESSAGE = "com.example.storygenerator.MESSAGE";
     EditText name;
     EditText gender;
@@ -31,19 +32,19 @@ public class    MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        name=findViewById(R.id.name);
-        gender=findViewById(R.id.gender);
-        color=findViewById(R.id.color);
-        location=findViewById(R.id.location);
-        number=findViewById(R.id.number);
-        like_one=findViewById(R.id.like_one);
-        like_two=findViewById(R.id.like_two);
-        like_three=findViewById(R.id.like_three);
-        dislike_one=findViewById(R.id.dislike_one);
-        dislike_two=findViewById(R.id.dislike_two);
-        dislike_three=findViewById(R.id.dislike_three);
-        clear_btn=findViewById(R.id.clear_btn);
-        submit_btn=findViewById(R.id.submit_btn);
+        name = findViewById(R.id.name);
+        gender = findViewById(R.id.gender);
+        color = findViewById(R.id.color);
+        location = findViewById(R.id.location);
+        number = findViewById(R.id.number);
+        like_one = findViewById(R.id.like_one);
+        like_two = findViewById(R.id.like_two);
+        like_three = findViewById(R.id.like_three);
+        dislike_one = findViewById(R.id.dislike_one);
+        dislike_two = findViewById(R.id.dislike_two);
+        dislike_three = findViewById(R.id.dislike_three);
+        clear_btn = findViewById(R.id.clear_btn);
+        submit_btn = findViewById(R.id.submit_btn);
         clear_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -60,10 +61,10 @@ public class    MainActivity extends AppCompatActivity {
                 dislike_three.getText().clear();
             }
         });
-       // submit_btn.setOnClickListener(new View.OnClickListener() {
-           // @Override
+        // submit_btn.setOnClickListener(new View.OnClickListener() {
+        // @Override
 
-       // });
+        // });
     }
 
     public void theSubmit(View view) {
@@ -109,6 +110,8 @@ public class    MainActivity extends AppCompatActivity {
         String dislike1 = text9.getText().toString();
         String dislike2 = text10.getText().toString();
         String dislike3 = text11.getText().toString();
+        name1 = randomName(name1);
+
         if (gender1.matches("[Ff]")) {
             String the_gender = "woman";
             String he_she = "she";
@@ -153,6 +156,8 @@ public class    MainActivity extends AppCompatActivity {
         String dislike1 = text9.getText().toString();
         String dislike2 = text10.getText().toString();
         String dislike3 = text11.getText().toString();
+        name1 = randomName(name1);
+
         if (gender1.matches("[Ff]")) {
             String the_gender = "woman";
             String he_she = "she";
@@ -196,6 +201,10 @@ public class    MainActivity extends AppCompatActivity {
         String dislike1 = text9.getText().toString();
         String dislike2 = text10.getText().toString();
         String dislike3 = text11.getText().toString();
+        name1=randomName(name1);
+
+
+
         if (gender1.matches("[Ff]")) {
             String the_gender = "woman";
             String he_she = "she";
@@ -225,4 +234,71 @@ public class    MainActivity extends AppCompatActivity {
         intent.putExtra(EXTRA_MESSAGE, message);
         startActivity(intent);
     }
+
+    public String randomName(String input) {
+        String newName = "";
+        String[] strArr = input.split("");
+        String[] vow = newArray(strArr, 0);
+        String[] con = newArray(strArr, 1);
+        int len = input.length();
+        for (int i = 0; i < strArr.length; i++) {
+
+            if (i % 2 == 0) {
+                int k = getRandomNumber(0, con.length);
+                if (newName == "") {
+                    String cap = con[k].toUpperCase();
+                    newName = newName.concat(cap);
+                } else {
+                    newName = newName.concat(con[k]);
+                }
+            } else {
+                int k = getRandomNumber(0, vow.length);
+                newName = newName.concat(vow[k]);
+            }
+        }
+        return newName;
+    }
+
+    public static String[] newArray(String[] arr, int input) {
+        String str = "";
+        for (int i = 0; i < arr.length; i++) {
+            System.out.println(arr[i]);
+            if (input == 0) {
+                if (arr[i].matches("[AEIOUYaeiouy]")) {
+                    str = str.concat(arr[i].toLowerCase());
+                }
+            } else {
+                if (arr[i].matches("[^AEIOUYaeiouy]")) {
+                    str = str.concat(arr[i].toLowerCase());
+                }
+            }
+        }
+        String[] newArr = str.split("");
+        return newArr;
+    }
+
+    public static String[] removeTheElement(String[] arr, int index) {
+        if (arr == null || index < 0
+                || index >= arr.length) {
+
+            return arr;
+        }
+
+        String[] anotherArray = new String[arr.length - 1];
+
+        for (int i = 0, k = 0; i < arr.length; i++) {
+
+            if (i == index) {
+                continue;
+            }
+            anotherArray[k++] = arr[i];
+        }
+
+        return anotherArray;
+    }
+
+    public int getRandomNumber(int min, int max) {
+        return (int) ((Math.random() * (max - min)) + min);
+    }
+
 }
