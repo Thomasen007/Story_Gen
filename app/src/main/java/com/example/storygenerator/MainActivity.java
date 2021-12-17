@@ -234,7 +234,9 @@ public class MainActivity extends AppCompatActivity {
         intent.putExtra(EXTRA_MESSAGE, message);
         startActivity(intent);
     }
-
+    // This function would take in a string and output a random string that was the same length of
+    // the orginal string. It would use the same number of letters of the orginal string.
+    //
     public String randomName(String input) {
         String newName = "";
         String[] strArr = input.split("");
@@ -259,6 +261,7 @@ public class MainActivity extends AppCompatActivity {
         return newName;
     }
 
+    // This function broke apart string into vowels and cousants.
     public static String[] newArray(String[] arr, int input) {
         String str = "";
         for (int i = 0; i < arr.length; i++) {

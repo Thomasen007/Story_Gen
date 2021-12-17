@@ -36,6 +36,7 @@
                 android:autoText="false"
                 android:fontFamily="casual"
                 android:text="TextView"
+                android:textColor="#E3E6C5"
                 android:textSize="16sp" />
         </LinearLayout>
     </ScrollView>
